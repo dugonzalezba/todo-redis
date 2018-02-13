@@ -1,14 +1,30 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-navbar color="primary">
+    <ion-title>HOLA MUNDO! CON REDIS</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  
+      <ion-item>
+        <ion-input [(ngModel)]="todo" placeholder="Inserta alguna tarea aquí..." type="text"></ion-input>
+      </ion-item>
+
+      <button  ion-button  full  (click)="enviarDatos()">AGREGAR</button>
+
+      <ion-list *ngFor="let key of keys">
+        <ion-item-sliding>
+          <ion-item>
+            <h2 text-wrap>{{items[key]}}</h2>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button expandable color="danger" (click)="borrarLlave(key)">
+              <ion-icon name="md-trash"></ion-icon>
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+ 
+
+
 </ion-content>
